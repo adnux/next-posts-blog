@@ -1,5 +1,6 @@
 import Header from '@/components/header';
 import './globals.css';
+import { Suspense } from 'react';
 
 export const metadata = {
   title: 'NextPosts',
@@ -11,7 +12,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <Header />
-        <main>{children}</main>
+        <Suspense fallback={<div>Loading...</div>}>
+          <main>{children}</main>
+        </Suspense>
       </body>
     </html>
   );
